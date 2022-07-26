@@ -1,0 +1,12 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var freqAlphabets = function(s) {
+  const base = 'a'.charCodeAt(0) - 1;
+  return s.replace(/(\d\d#|\d)/g, c =>
+    c[2] === '#'
+      ? String.fromCharCode(base + parseInt(c.slice(0, -1)))
+      : String.fromCharCode(base + parseInt(c))
+  );
+};
