@@ -1,0 +1,51 @@
+/**
+ * @param {string} a
+ * @param {string} b
+ * @return {string}
+ */
+var addBinary = function(a, b) {
+    let arr1 = [...a], arr2 = [...b], op=[],carry=0;
+    let a1 = arr1.map(ele => parseInt(ele));
+    let b1 = arr2.map(ele => parseInt(ele));
+    while(a1.length > 0 || b1.length > 0){
+        let firstNumber = a1.pop();
+        let secondNumber = b1.pop();
+        if(firstNumber === 1 && secondNumber === 1){
+            if(carry === 1){
+            op.push(1);
+            carry=1;
+            }
+            else{
+            op.push(0);
+            carry=1;
+            }
+        }
+        if(firstNumber === 0 || secondNumber === 0 || firstNumber === undefined || secondNumber === undefined){
+            if(carry === 1){
+                if((firstNumber === 0 || firstNumber === undefined) && (secondNumber === 0 || secondNumber === undefined)){
+                    op.push(1);
+                    carry=0;
+                }
+                if(firstNumber === 1 || secondNumber === 1){
+                    op.push(0);
+                    carry=1;
+                }
+            }
+            else{
+                if(firstNumber === 1 || secondNumber === 1){
+                    op.push(1);
+                    carry=0;
+                }
+                if((firstNumber === 0 || firstNumber === undefined) && (secondNumber === 0 || secondNumber === undefined)){
+                    op.push(0);
+                    carry=0;
+                }
+            }
+        }
+    }
+    if(carry === 1){
+        op.push(1);
+    }
+    let output = op.reverse().join("");
+    return output;
+};
