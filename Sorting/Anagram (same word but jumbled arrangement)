@@ -1,0 +1,11 @@
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function(s, t) {
+    let fw = s.split('').sort().join();
+    let lw = t.split('').sort().join();
+    if(fw === lw) return true
+    else return false
+};
