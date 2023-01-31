@@ -3,14 +3,17 @@
  * @return {number[]}
  */
 var getRow = function(rowIndex) {
-    let series = [[1], [1,1]];
-    for(let g=2; g<=rowIndex; g++){
-        series[g] = [];
-        series[g][0] = 1;
-        for(let k=1; k<g; k++){
-            series[g][k] = series[g-1][k-1] + series[g-1][k];
+    let op=[], arr=[];
+for(let i=0;i<=rowIndex;++i){
+    for(let j=0;j<=i;++j){
+        if(j===0 || j===i){
+            arr[j] = 1;
+        }else{
+            arr[j] = Number(op[j-1]) + Number(op[j]);
         }
-        series[g][g] = 1;
     }
-    return  series[rowIndex];
+    op = JSON.parse(JSON.stringify(arr));
+    arr=[];
+}
+return op;
 };
