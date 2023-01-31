@@ -1,0 +1,16 @@
+/**
+ * @param {number} rowIndex
+ * @return {number[]}
+ */
+var getRow = function(rowIndex) {
+    let series = [[1], [1,1]];
+    for(let g=2; g<=rowIndex; g++){
+        series[g] = [];
+        series[g][0] = 1;
+        for(let k=1; k<g; k++){
+            series[g][k] = series[g-1][k-1] + series[g-1][k];
+        }
+        series[g][g] = 1;
+    }
+    return  series[rowIndex];
+};
