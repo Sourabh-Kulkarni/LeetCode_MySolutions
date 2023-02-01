@@ -1,0 +1,9 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function(s) {
+    const regexPattern = /[^A-Za-z0-9]/g; // Using regex command
+    const ans = s.replace(regexPattern, "").toLowerCase();
+    return ans === ans.split("").reverse().join("");
+};
