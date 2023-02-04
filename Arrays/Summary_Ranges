@@ -1,0 +1,23 @@
+* @param {number[]} nums
+ * @return {string[]}
+ */
+var summaryRanges = function(nums) {
+    let op = [],temp=[],ca=[];
+    for(let i=0; i<nums.length;++i){
+        if(nums[i+1] === nums[i]+1){
+            temp.push(nums[i])
+        }else{
+            temp.push(nums[i]);
+            ca.push(temp[0]);
+            ca.push(temp[temp.length-1]);
+            temp=[];
+            if(ca[0] !== ca[1]){
+                op.push(`${ca[0]}->${ca[1]}`);
+            }else{
+                op.push(`${ca[0]}`)
+            }
+            ca=[];
+        }
+    }
+    return op;
+};
