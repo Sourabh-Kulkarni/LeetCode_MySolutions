@@ -1,0 +1,24 @@
+/**
+ * @param {string} pattern
+ * @param {string} s
+ * @return {boolean}
+ */
+var wordPattern = function(pattern, s) {
+    let patternArray = [...new Set(pattern.split(''))];
+    let sArray = [...new Set(s.split(' '))], arr= {}, flag=true;
+    for(let i=0;i<patternArray.length;++i){
+        arr[patternArray[i]] = sArray[i];
+    }
+    let pta = pattern.split('');
+    let pts = s.split(' ');
+    if(pta.length === pts.length){
+        for(let i=0;i<pta.length;++i){
+            if(arr[pta[i]] !== pts[i]){
+                flag=false;
+            }
+        }
+    }else{
+        flag=false;
+    }
+    return flag;
+};
