@@ -1,0 +1,19 @@
+/**
+ * @param {string} ransomNote
+ * @param {string} magazine
+ * @return {boolean}
+ */
+var canConstruct = function(ransomNote, magazine) {
+    let newRansomeNote = ransomNote.split('')
+    let newMagazine = magazine.split('');
+    for(let i=0;i<newRansomeNote.length;++i){
+        if(!newMagazine.includes(newRansomeNote[i])){
+            return false
+        }
+        else{
+            let nr = newMagazine.indexOf(newRansomeNote[i]);
+            newMagazine.splice(nr,1);
+        }
+    }
+    return true;
+};
