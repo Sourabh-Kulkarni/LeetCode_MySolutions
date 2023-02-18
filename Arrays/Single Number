@@ -1,0 +1,12 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var singleNumber = function(nums) {
+    let i=0;
+    nums.sort((a,b) => a-b);
+    while(i<nums.length){
+        if(nums[i] !== nums[i+1]) return nums[i]
+        else i = i + 2;
+    }
+};
