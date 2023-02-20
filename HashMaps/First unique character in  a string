@@ -1,0 +1,42 @@
+// my solution (not much efficient w.r.t. Big-O)
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var firstUniqChar = function(s) {
+    let s1 = s.split(''), word;
+    while(s1.length){
+        word = s1.splice(0,1);
+        if(!s1.includes(word[0])) return s.indexOf(word[0])
+        else {
+            s1 = s1.filter((element)=>{ return element !== word[0]});
+        }
+    }
+    return -1
+};
+
+// Efficient solution
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+let firstUniqChar = function(s) {
+    let map=new Map();
+    for(let x of s){
+        if(map.has(x)){
+            map.set(x,map.get(x)+1);
+        }
+        else{
+            map.set(x,0);
+        }
+    }
+    console.log(map,'map');
+    for(let[k,v] of map){
+        if(v===0){
+            let val=s.indexOf(k);
+            return val;
+        }
+    }    
+};
