@@ -1,0 +1,14 @@
+// Best space complexity:
+
+var findDisappearedNumbers = function(nums) {
+    let op = [];
+    return op = nums.reduce((acc,num,idx)=> {
+        if(!nums.includes(idx+1)){
+            acc.push(idx+1)
+        }
+        return acc
+    },[])
+};
+
+// Best Time complexity:
+
