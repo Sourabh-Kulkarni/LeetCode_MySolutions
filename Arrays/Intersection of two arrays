@@ -1,0 +1,15 @@
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersection = function(nums1, nums2) {
+    let myHashMap={};
+    nums1.map((num1)=>{
+        if(nums2.includes(num1)){
+            if(!myHashMap[num1]) myHashMap[num1] = true;
+        }
+    });
+   // console.log([parseInt(...(Object.keys(myHashMap)))])
+    return [...Object.keys(myHashMap)]
+};
