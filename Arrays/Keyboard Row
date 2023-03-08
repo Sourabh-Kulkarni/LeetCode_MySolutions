@@ -1,0 +1,28 @@
+
+/**
+ * @param {string[]} words
+ * @return {string[]}
+ */
+ // Time Complexity: 62 ms (beats 60% answers), Space Complexity: 41.2 MB (beats 96.90% answers).
+var findWords = function(words) {
+    let f1 = ['q','w','e','r','t','y','u','i','o','p'];
+    let f2 = ['a','s','d','f','g','h','j','k','l'];
+    let f3 = ['z','x','c','v','b','n','m'];
+    let flag = [], present=true, op=[];
+    
+    for(let word of words){
+            let lowerCaseWord = word.toLowerCase();
+            present=true
+            if(f1.includes(word[0].toLowerCase())){  flag = f1 }
+            else if(f2.includes(word[0].toLowerCase())){flag = f2}
+            else {flag = f3};
+        for(let i=1;i<lowerCaseWord.length;++i){
+          if(!flag.includes(lowerCaseWord[i])){
+              present = false;
+              break
+          }
+        }
+        if(present === true){ op.push(word)}
+    }
+    return op;
+};
