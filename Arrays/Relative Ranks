@@ -1,0 +1,28 @@
+/**
+ * @param {number[]} score
+ * @return {string[]}
+ 
+ Runtime 67 ms; Beats : 99.8%
+ Memory 44.8 MB; Beats : 49.8%
+ 
+ */
+var findRelativeRanks = function(score) {
+    let answer=[], sortedArr=[], mapData={};
+    sortedArr = [...score];
+    sortedArr.sort((a,b)=> b-a);
+    for(let key=0;key<sortedArr.length;key++){
+       if(key === 0) mapData[sortedArr[key]] = "Gold Medal";
+       else if (key === 1) mapData[sortedArr[key]] = "Silver Medal";
+       else if (key === 2)  mapData[sortedArr[key]] = "Bronze Medal";
+       else mapData[sortedArr[key]] = key + 1;
+    }
+    for(let ele=0; ele<sortedArr.length;++ele){
+            // if(ele === 0 || ele === 1 || ele === 2){
+            //     answer.push(mapData[score[ele]])
+            // }
+            // else {
+                answer.push(String(mapData[score[ele]]))
+            // }
+    }
+    return answer;
+};
