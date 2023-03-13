@@ -1,0 +1,12 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var arrayPairSum = function(nums) {
+    let op = 0;
+    nums.sort((a,b)=> b-a);
+    for(let i=0;i<nums.length;i=i+2){
+        op += Math.min(nums[i],nums[i+1])
+    }
+    return op;
+};
