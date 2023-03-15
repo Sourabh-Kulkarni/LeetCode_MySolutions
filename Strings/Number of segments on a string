@@ -1,0 +1,13 @@
+/**
+ * @param {string} s
+ * @return {number}
+ Beat: 92% in Time Complexity and 67% in Space Complexity
+ */
+var countSegments = function(s) {
+    // if(/\s/.test(s))
+    let ws=0
+    if(s.length === 0) return 0;
+    let s1 = s.split(" ");
+    s1 = s1.filter(n => n !== "");
+    return s1.length;
+};
