@@ -1,0 +1,19 @@
+var matrixReshape = function(mat, r, c) {
+    let y1length = mat.length;
+    let x1length = mat[0].length;
+    if (x1length * y1length !== c * r) return mat;
+    let outputMat = Array.from({length: r}, i=>[])   
+    let y2pointer = 0;
+    let x2pointer = 0;
+    for (let y = 0; y < y1length; y++) {
+        for (let x = 0; x < x1length; x++) {
+            outputMat[y2pointer][x2pointer] = mat[y][x];
+            x2pointer++;
+            if (x2pointer === c ) {
+                y2pointer++;
+                x2pointer = 0;
+            }
+        }
+    }
+    return outputMat;
+};
