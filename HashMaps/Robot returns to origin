@@ -1,0 +1,25 @@
+/**
+ * @param {string} moves
+ * @return {boolean}
+ */
+var judgeCircle = function(moves) {
+    let hMap = {
+        'U':'D',
+        'D':'U',
+        'L':'R',
+        'R':'L'
+    };
+    let copyMoves = [...moves];
+    
+        while(copyMoves.length){
+            let firstWord = copyMoves[0];
+                copyMoves.splice(0,1);
+            if(copyMoves.includes(hMap[firstWord])){
+                let idx = copyMoves.indexOf(hMap[firstWord]);
+                copyMoves.splice(idx,1);
+            }else{
+                return false;
+            }
+        }
+    return true;
+};
