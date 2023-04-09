@@ -1,0 +1,31 @@
+/**
+ * @param {string[]} operations
+ * @return {number}
+ */
+var calPoints = function(operations) {
+    let ops = [];
+    for(let op of operations){
+        switch(op){
+            case "C":
+                if(ops.length !== 0){
+                    ops.pop();
+                }
+                break;
+            case "D":
+                let lastEle = (ops[ops.length - 1] *2);
+                ops.push(lastEle);
+                break;
+            case "+":
+                ops.push(parseInt(ops[ops.length - 1]) + parseInt(ops[ops.length - 2]));
+                break;
+            default:
+                ops.push(op);
+                break;
+        }
+    }
+    let total = 0 ;
+    for(let i of ops){
+        total += parseInt(i);
+    }
+    return total
+};
