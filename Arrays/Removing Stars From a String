@@ -1,0 +1,27 @@
+//My solution (Time complexity is not good)
+// var removeStars = function(s) {
+//         s = s.split('');
+//     while(s.includes('*')){
+//         let idx = s.indexOf('*');
+//         s.splice(idx-1,2);
+//     }
+//     s = s.join('')
+//     return s;
+// };
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+
+var removeStars = function(s) {
+    const stackArr = [];
+    for(let i=0;i<s.length;i++){
+        if(s[i] === "*" && stackArr.length){
+            stackArr.pop();
+        } else {
+            stackArr.push(s[i]);
+        }
+    }
+    return stackArr.join("");
+};
