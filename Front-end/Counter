@@ -1,0 +1,19 @@
+/**
+ * @param {number} n
+ * @return {Function} counter
+ */
+ 
+ // 100% in both Time and Space complexity
+var createCounter = function(n) {
+    let argu = n;
+    return function() {
+        return argu++;
+    };
+};
+
+/** 
+ * const counter = createCounter(10)
+ * counter() // 10
+ * counter() // 11
+ * counter() // 12
+ */
