@@ -1,0 +1,20 @@
+/**
+ * @return {Generator<number>}
+ */
+var fibGenerator = function*() {
+    let prev = 0, twoPrev = 0,curr = 0;
+    if(curr === 0) {yield curr; prev = 1}
+    if(curr === 0 && prev === 1) {yield 1; curr = 1 }
+    while(true){
+        curr = prev + twoPrev;
+        yield curr;
+        twoPrev = prev;
+        prev = curr;
+    }
+};
+
+/**
+ * const gen = fibGenerator();
+ * gen.next().value; // 0
+ * gen.next().value; // 1
+ */
