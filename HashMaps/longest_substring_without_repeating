@@ -1,0 +1,22 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+   let front = 0, back=0, maxLength=0;
+   const map={};
+   for(;front<s.length;front+=1){
+       const exist = map[s[front]]
+       console.log('exist = ', exist)
+       if(exist !== undefined && back<=exist){
+           back = exist+1;
+       }
+       map[s[front]] = front;
+       console.log('map = ', map)
+       maxLength = Math.max(front-back+1, maxLength);
+   }
+   return maxLength;
+};
+
+const res = lengthOfLongestSubstring('anviaj') //anviaj
+console.log('res = ', res)
